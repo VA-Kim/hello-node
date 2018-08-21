@@ -15,11 +15,13 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + '/public'));
 
 // query를 통해서 이름을 받는다. 모든 query는 req.query에 저장된다.
+// ex) localhost:3000/hello?nameQuery=Mike
 app.get("/hello", function(req, res){
   res.render("hello", {name:req.query.nameQuery});
 });
 
 // route parameter를 통해 이름을 받는 코드.
+// ex) localhost:3000/hello/Jane
 app.get("/hello/:nameParam", function(req,res){
   res.render("hello", {name:req.params.nameParam});
 });
